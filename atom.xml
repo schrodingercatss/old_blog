@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://maojunjie666.top/"/>
-  <updated>2018-09-01T10:31:13.362Z</updated>
+  <updated>2018-09-02T14:30:47.647Z</updated>
   <id>http://maojunjie666.top/</id>
   
   <author>
@@ -17,20 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>文件的基本操作（总览导图篇）</title>
-    <link href="http://maojunjie666.top/2018/09/02/%E6%96%87%E4%BB%B6/%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%88%E6%80%BB%E8%A7%88%E5%AF%BC%E5%9B%BE%E7%AF%87)/"/>
-    <id>http://maojunjie666.top/2018/09/02/文件/文件的基本操作（总览导图篇)/</id>
-    <published>2018-09-02T01:39:35.113Z</published>
-    <updated>2018-09-01T10:31:13.362Z</updated>
+    <title>什么是EOF</title>
+    <link href="http://maojunjie666.top/2018/09/02/EOF/"/>
+    <id>http://maojunjie666.top/2018/09/02/EOF/</id>
+    <published>2018-09-02T14:14:21.000Z</published>
+    <updated>2018-09-02T14:30:47.647Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://i.loli.net/2018/06/21/5b2b21dce0b1e.png" alt="c语言文件操作.png"><br><a id="more"></a></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="什么是EOF？"><a href="#什么是EOF？" class="headerlink" title="什么是EOF？"></a>什么是EOF？</h4><p>很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。</p><p>首先来看，百度百科给其的定义：</p><p>EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。 </p><hr><h4 id="举例子"><a href="#举例子" class="headerlink" title="举例子"></a>举例子</h4><p>简单来说，eof就是在文件末尾添加的一个字符。在C语言中，EOF是一个关键字，它的值是-1，这样不会与ASCII码冲突（这个以后再详说）</p><p>在window中，eof使用快捷键：<code>ctrl+z</code> 来输入。</p><p>又比如，在下面这个例子中，在8的末尾是有一个eof的，当读取完8后，继续往下读，读到了eof，结束读入。</p><blockquote><p>1 2</p><p>3 4</p><p>5 6</p><p>7 8</p></blockquote><p>EOF在OJ是用来针对多组输入问题的，当你不知道系统有几组输入时，你都可以使用EOF关键字判断，因为不论是有3组、4组还是n组，只要读到了EOF关键字，肯定能表示测试用例已经读完。</p><hr><h4 id="代码举例（C语言）"><a href="#代码举例（C语言）" class="headerlink" title="代码举例（C语言）"></a>代码举例（C语言）</h4><p>现在我们有一个不确定有多少组输入的A+B问题。</p><p>C语言比较方便，因为c语言中定义了EOF关键字</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF)&#123;    <span class="comment">//这里当scanf读取正确时，返回参数个数，如果读到EOF，返回EOF</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当scanf返回EOF，不满足while循环的条件时就结束了输入，非常方便。</p><hr><h4 id="代码举例-python"><a href="#代码举例-python" class="headerlink" title="代码举例(python)"></a>代码举例(python)</h4><p>在python中，是没有定义eof关键字的，但是我们可以使用异常捕获来针对eof关键字。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">       print(sum(int(i) <span class="keyword">for</span> i <span class="keyword">in</span> input().split()))</span><br><span class="line"><span class="keyword">except</span> EOFError:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure><p>当捕获到eof时，就会执行pass语句，pass语句表示什么都不执行，然后循环就会结束了。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/06/21/5b2b21dce0b1e.png&quot; alt=&quot;c语言文件操作.png&quot;&gt;&lt;br&gt;
+      
+      
+        &lt;h4 id=&quot;什么是EOF？&quot;&gt;&lt;a href=&quot;#什么是EOF？&quot; class=&quot;headerlink&quot; title=&quot;什么是EOF？&quot;&gt;&lt;/a&gt;什么是EOF？&lt;/h4&gt;&lt;p&gt;很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。&lt;/p&gt;
+&lt;p&gt;首先来看，百度百科
+      
     
     </summary>
     
+      <category term="C语言" scheme="http://maojunjie666.top/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="C语言" scheme="http://maojunjie666.top/tags/C%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
@@ -411,7 +419,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;1-冒泡排序&quot;&gt;&lt;a href=&quot;#1-冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;1.冒泡排序&quot;&gt;&lt;/a&gt;1.冒泡排序&lt;/h4&gt;&lt;!--�0--&gt;
+      &lt;h4 id=&quot;1-冒泡排序&quot;&gt;&lt;a href=&quot;#1-冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;1.冒泡排序&quot;&gt;&lt;/a&gt;1.冒泡排序&lt;/h4&gt;&lt;!--�5--&gt;
     
     </summary>
     
