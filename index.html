@@ -7,7 +7,6 @@
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
-	<meta name="baidu-site-verification" content="BoAqsvlPSm" />
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -378,6 +377,17 @@
 
           
           
+             <span id="/2018/09/02/EOF/" class="leancloud_visitors" data-flag-title="什么是EOF">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -430,32 +440,16 @@
 
       
         
-          
-            <h4 id="什么是EOF？"><a href="#什么是EOF？" class="headerlink" title="什么是EOF？"></a>什么是EOF？</h4><p>很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。</p>
+          <h4 id="什么是EOF？"><a href="#什么是EOF？" class="headerlink" title="什么是EOF？"></a>什么是EOF？</h4><p>很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。</p>
 <p>首先来看，百度百科给其的定义：</p>
-<p>EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。 </p>
-<hr>
-<h4 id="举例子"><a href="#举例子" class="headerlink" title="举例子"></a>举例子</h4><p>简单来说，eof就是在文件末尾添加的一个字符。在C语言中，EOF是一个关键字，它的值是-1，这样不会与ASCII码冲突（这个以后再详说）</p>
-<p>在window中，eof使用快捷键：<code>ctrl+z</code> 来输入。</p>
-<p>又比如，在下面这个例子中，在8的末尾是有一个eof的，当读取完8后，继续往下读，读到了eof，结束读入。</p>
-<blockquote>
-<p>1 2</p>
-<p>3 4</p>
-<p>5 6</p>
-<p>7 8</p>
-</blockquote>
-<p>EOF在OJ是用来针对多组输入问题的，当你不知道系统有几组输入时，你都可以使用EOF关键字判断，因为不论是有3组、4组还是n组，只要读到了EOF关键字，肯定能表示测试用例已经读完。</p>
-<hr>
-<h4 id="代码举例（C语言）"><a href="#代码举例（C语言）" class="headerlink" title="代码举例（C语言）"></a>代码举例（C语言）</h4><p>现在我们有一个不确定有多少组输入的A+B问题。</p>
-<p>C语言比较方便，因为c语言中定义了EOF关键字</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF)&#123;    <span class="comment">//这里当scanf读取正确时，返回参数个数，如果读到EOF，返回EOF</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当scanf返回EOF，不满足while循环的条件时就结束了输入，非常方便。</p>
-<hr>
-<h4 id="代码举例-python"><a href="#代码举例-python" class="headerlink" title="代码举例(python)"></a>代码举例(python)</h4><p>在python中，是没有定义eof关键字的，但是我们可以使用异常捕获来针对eof关键字。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">       print(sum(int(i) <span class="keyword">for</span> i <span class="keyword">in</span> input().split()))</span><br><span class="line"><span class="keyword">except</span> EOFError:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>当捕获到eof时，就会执行pass语句，pass语句表示什么都不执行，然后循环就会结束了。</p>
-
-          
+<p>EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/02/EOF/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -553,6 +547,17 @@
           
 
           
+          
+             <span id="/2018/09/02/文件/文件的基本操作（文件重定向篇）/" class="leancloud_visitors" data-flag-title="文件的基本操作（文件重定向篇）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -714,6 +719,17 @@
 
           
           
+             <span id="/2018/09/02/文件/文件的基本操作（文件指针篇）/" class="leancloud_visitors" data-flag-title="文件的基本操作（文件指针上篇）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -872,6 +888,17 @@
           
 
           
+          
+             <span id="/2018/09/02/文件/文件的基本操作（概念介绍篇）/" class="leancloud_visitors" data-flag-title="文件的基本操作（概念介绍篇）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1056,6 +1083,17 @@
 
           
           
+             <span id="/2018/09/02/位运算/位运算/" class="leancloud_visitors" data-flag-title="位运算技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1219,6 +1257,17 @@
 
           
           
+             <span id="/2018/09/02/杂项/网原第4章笔记/" class="leancloud_visitors" data-flag-title="网原杂项笔记(第4章)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1377,6 +1426,17 @@
           
 
           
+          
+             <span id="/2018/09/02/杂项/网原笔记(1-3章)/" class="leancloud_visitors" data-flag-title="网络原理笔记(1-3章)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1537,6 +1597,17 @@
 
           
           
+             <span id="/2018/09/02/算法学习：深度优先搜索/" class="leancloud_visitors" data-flag-title="算法学习：深度优先搜索DFS(一)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1690,12 +1761,45 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dfs/" itemprop="url" rel="index">
+                    <span itemprop="name">dfs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
           
 
           
+          
+             <span id="/2018/09/02/算法学习：深度优先搜索(2)/" class="leancloud_visitors" data-flag-title="算法学习：深度优先搜索DFS(二)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1857,6 +1961,17 @@
           
 
           
+          
+             <span id="/2018/09/02/C语言/数组和指针/" class="leancloud_visitors" data-flag-title="数组和指针(一)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -2037,7 +2152,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2048,7 +2163,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2601,6 +2716,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aqH1qLvnL1NQibrsE0pBSfTe-gzGzoHsz#<app_id>", "chHHvSnuwDq0idf6QDcX8Bb3#<app_key>");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
