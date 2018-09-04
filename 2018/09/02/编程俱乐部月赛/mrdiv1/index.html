@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。  【新生阶段月赛NO.1】白细胞传送门:  这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。 123456789a,b=[int(x) for x in input().split()]L=[int(x) for x in input().split()]L.sort()ans=0f">
+<meta name="description" content="前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。  【新生阶段月赛NO.1】白细胞传送门:  这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。">
 <meta name="keywords" content="新生赛题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18级编程俱乐部新生赛div1轮题解">
 <meta property="og:url" content="http://maojunjie666.top/2018/09/02/编程俱乐部月赛/mrdiv1/index.html">
 <meta property="og:site_name" content="哲♂学家的小黑屋">
-<meta property="og:description" content="前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。  【新生阶段月赛NO.1】白细胞传送门:  这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。 123456789a,b=[int(x) for x in input().split()]L=[int(x) for x in input().split()]L.sort()ans=0f">
+<meta property="og:description" content="前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。  【新生阶段月赛NO.1】白细胞传送门:  这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-04T07:57:26.052Z">
+<meta property="og:updated_time" content="2018-09-04T10:03:26.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18级编程俱乐部新生赛div1轮题解">
-<meta name="twitter:description" content="前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。  【新生阶段月赛NO.1】白细胞传送门:  这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。 123456789a,b=[int(x) for x in input().split()]L=[int(x) for x in input().split()]L.sort()ans=0f">
+<meta name="twitter:description" content="前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。  【新生阶段月赛NO.1】白细胞传送门:  这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。">
 
 
 
@@ -449,8 +449,7 @@
         <p>前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。</p>
 <hr>
 <h4 id="【新生阶段月赛NO-1】白细胞"><a href="#【新生阶段月赛NO-1】白细胞" class="headerlink" title="【新生阶段月赛NO.1】白细胞"></a>【新生阶段月赛NO.1】白细胞</h4><p><a href="http://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=0" target="_blank" rel="noopener">传送门:</a> </p>
-<p>这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a,b=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">L=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">L.sort()</span><br><span class="line">ans=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> L:</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=i):</span><br><span class="line">        a-=i</span><br><span class="line">        ans+=<span class="number">1</span></span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<p>这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a,b=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">L=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">L.sort()</span><br><span class="line">ans=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> L:</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=i):</span><br><span class="line">        a-=i</span><br><span class="line">        ans+=<span class="number">1</span></span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h4 id="【新生阶段月赛NO-2】红细胞"><a href="#【新生阶段月赛NO-2】红细胞" class="headerlink" title="【新生阶段月赛NO.2】红细胞"></a>【新生阶段月赛NO.2】红细胞</h4><p><a href="http://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=1" target="_blank" rel="noopener">传送门:</a></p>
 <p>这题无比的水，循环连乘即可。</p>
