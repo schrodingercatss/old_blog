@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/EOF/">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/编程俱乐部月赛/mrdiv1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Schoringercatss">
@@ -325,7 +325,244 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/02/EOF/" itemprop="url">什么是EOF</a></h1>
+                <a class="post-title-link" href="/2018/09/02/编程俱乐部月赛/mrdiv1/" itemprop="url">18级编程俱乐部新生赛div1轮题解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T22:14:21+08:00">
+                2018-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/18级新生赛题解/" itemprop="url" rel="index">
+                    <span itemprop="name">18级新生赛题解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/02/编程俱乐部月赛/mrdiv1/" class="leancloud_visitors" data-flag-title="18级编程俱乐部新生赛div1轮题解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,239字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前言：这次的题目不算很难，都是你们学过的东西，比如第一题是排序，第二题的循环，第三题的斐波那契等等。</p>
+<hr>
+<h4 id="【新生阶段月赛NO-1】白细胞"><a href="#【新生阶段月赛NO-1】白细胞" class="headerlink" title="【新生阶段月赛NO.1】白细胞"></a>【新生阶段月赛NO.1】白细胞</h4><p><a href="http://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=0" target="_blank" rel="noopener">传送门:</a> </p>
+<p>这题非常的水，按非降序的方式排序，然后用循环模拟整个过程即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a,b=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">L=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">L.sort()</span><br><span class="line">ans=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> L:</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=i):</span><br><span class="line">        a-=i</span><br><span class="line">        ans+=<span class="number">1</span></span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="【新生阶段月赛NO-2】红细胞"><a href="#【新生阶段月赛NO-2】红细胞" class="headerlink" title="【新生阶段月赛NO.2】红细胞"></a>【新生阶段月赛NO.2】红细胞</h4><p><a href="http://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=1" target="_blank" rel="noopener">传送门:</a></p>
+<p>这题无比的水，循环连乘即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=int(input())</span><br><span class="line">L=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">ans=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> L:</span><br><span class="line">    ans*=i</span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="【新生阶段月赛NO-3】杀手T细胞"><a href="#【新生阶段月赛NO-3】杀手T细胞" class="headerlink" title="【新生阶段月赛NO.3】杀手T细胞"></a>【新生阶段月赛NO.3】杀手T细胞</h4><p><a href="http://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=2" target="_blank" rel="noopener">传送门:</a></p>
+<p>这题观察可知，杀手t细胞可以走1步或跑2步，观察前几项可知为：1 2 3 5 8  ，显然是个斐波那契数列，循环走一波，ac。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">L=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]   <span class="comment">#打表，打出前几项，然后在进行循环递推</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>,<span class="number">32</span>):</span><br><span class="line">    L.append(L[i<span class="number">-1</span>]+L[i<span class="number">-2</span>])</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        n=int(input())</span><br><span class="line">        print(L[n])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="【新生阶段月赛NO-4】辅助T细胞"><a href="#【新生阶段月赛NO-4】辅助T细胞" class="headerlink" title="【新生阶段月赛NO.4】辅助T细胞"></a>【新生阶段月赛NO.4】辅助T细胞</h4><p><a href="hhttp://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=3" target="_blank" rel="noopener">传送门:</a></p>
+<p>用python的孩子这题可以直接用字符串的方式来做，不过用c就的话，就需要用下面这种方式了。</p>
+<p>这题我们显然可以用取余的方式来获得每一位，比如631，</p>
+<p>631%10=1  取余一次再整除10，631//10=63  </p>
+<p>63%10=3  再整除10，63//10=6</p>
+<p>6%10=6  再整除10,  6//10=0</p>
+<p>结束循环即可，使用一个变量记录6的个数，如果是2，就给计数器变量加1，最后输出计数器变量即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#取余解法</span></span><br><span class="line">n=int(input())</span><br><span class="line">sum=<span class="number">0</span> <span class="comment">#计数器变量</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">66</span>,n+<span class="number">1</span>):  <span class="comment">#i至少从66开始才会有2个6，如果小于66，这个循环不会执行</span></span><br><span class="line">    cnt=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(i&gt;<span class="number">0</span>):</span><br><span class="line">        <span class="keyword">if</span>(i%<span class="number">10</span>==<span class="number">6</span>):cnt+=<span class="number">1</span>;</span><br><span class="line">        i=i//<span class="number">10</span></span><br><span class="line">    <span class="keyword">if</span>(cnt==<span class="number">2</span>):sum+=<span class="number">1</span></span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#字符串解法</span></span><br><span class="line">n=int(input())</span><br><span class="line">ans=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">    cnt=str(i).count(<span class="string">'6'</span>)</span><br><span class="line">    <span class="keyword">if</span> cnt==<span class="number">2</span>:</span><br><span class="line">        ans+=<span class="number">1</span></span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="【新生阶段月赛NO-5】巨噬细胞"><a href="#【新生阶段月赛NO-5】巨噬细胞" class="headerlink" title="【新生阶段月赛NO.5】巨噬细胞"></a>【新生阶段月赛NO.5】巨噬细胞</h4><p><a href="http://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=4" target="_blank" rel="noopener">传送门:</a></p>
+<p>这题显然对10取余即可，只有（9+1）%10=0，这样正好模拟了向前推一位。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l=[(int(x)+<span class="number">1</span>)%<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> input()]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(l)):</span><br><span class="line">    print(l[i],end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="【新生阶段月赛NO-6】压轴：血小板是我的"><a href="#【新生阶段月赛NO-6】压轴：血小板是我的" class="headerlink" title="【新生阶段月赛NO.6】压轴：血小板是我的"></a>【新生阶段月赛NO.6】压轴：血小板是我的</h4><p><a href="http://ojjump.acm-icpc.top:8899/problem.php?cid=1026&amp;pid=5" target="_blank" rel="noopener">传送门:</a></p>
+<p>这题是著名的约瑟夫环问题，有兴趣的孩子可以百度，我这题出的数据特别的小，所以可以用模拟的方法ac，如果数据量大，模拟的方式肯定会超时。</p>
+<p>下面是用递推的方式来解这个问题，<strong>证明过程如下：</strong></p>
+<blockquote>
+<p>令f[n]表示当有n个候选人时，最后当选者的编号。<br>f[1] = 0<br>f[n] = (f[n - 1] + K) mod n</p>
+</blockquote>
+<p>接下来我们用数学归纳法来证明这个递推公式的正确性：</p>
+<p>(1) <strong>f[1] = 0</strong></p>
+<p>显然当只有1个候选人时，该候选人就是当选者，并且他的编号为0。</p>
+<p>(2) <strong>f[n] = (f[n - 1] + K) mod n</strong></p>
+<p>假设我们已经求解出了f[n - 1]，并且保证f[n - 1]的值是正确的。</p>
+<p>现在先将n个人按照编号进行排序：</p>
+<p>那么第一次被淘汰的人编号一定是K-1(假设K &lt; n，若K &gt; n则为(K-1) mod n)。将被选中的人标记为”#”：</p>
+<p>第二轮报数时，起点为K这个候选人。并且只剩下n-1个选手。假如此时把k+1看作0’，k+2看作1’…</p>
+<p>则对应有：</p>
+<p>此时在0’,1’,…,n-2’上再进行一次K报数的选择。而f[n-1]的值已经求得，因此我们可以直接求得当选者的编号s’。</p>
+<p>但是，该编号s’是在n-1个候选人报数时的编号，并不等于n个人时的编号，所以我们还需要将s’转换为对应的s。</p>
+<p>通过观察，s和s’编号相对偏移了K，又因为是在环中，因此得到s = (s’+K) mod n。</p>
+<p>即f[n] = (f[n-1] + k) mod n。</p>
+<p>至此递推公式的两个式子我们均证明了其正确性，则对于任意给定的n，我们可以使用该递推式求得f[n]，写成伪代码为：</p>
+<p>同时由于计算f[i]时，只会用到f[i-1]，因此我们还可以将f[]的空间节约，改进后的代码为：</p>
+<p>该算法的时间复杂度为O(N)，空间复杂度为O(1)。对于N不是很大的数据来说，可以解决。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n,m=[int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">s=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n+<span class="number">1</span>):</span><br><span class="line">    s=(s+m)%i  <span class="comment">#循环递推式</span></span><br><span class="line">print(s+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+	<div>
+	
+	</div>
+
+    <footer class="post-footer">
+      
+		
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/C语言/EOF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Schoringercatss">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哲♂学家的小黑屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/02/C语言/EOF/" itemprop="url">什么是EOF</a></h1>
         
 
         <div class="post-meta">
@@ -377,7 +614,7 @@
 
           
           
-             <span id="/2018/09/02/EOF/" class="leancloud_visitors" data-flag-title="什么是EOF">
+             <span id="/2018/09/02/C语言/EOF/" class="leancloud_visitors" data-flag-title="什么是EOF">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -445,7 +682,7 @@
 <p>EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/02/EOF/" rel="contents">
+            <a class="btn" href="/2018/09/02/C语言/EOF/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1548,7 +1785,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/算法学习：深度优先搜索/">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/搜索/算法学习：深度优先搜索/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Schoringercatss">
@@ -1567,7 +1804,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/02/算法学习：深度优先搜索/" itemprop="url">算法学习：深度优先搜索DFS(一)</a></h1>
+                <a class="post-title-link" href="/2018/09/02/搜索/算法学习：深度优先搜索/" itemprop="url">算法学习：深度优先搜索DFS(一)</a></h1>
         
 
         <div class="post-meta">
@@ -1597,7 +1834,7 @@
 
           
           
-             <span id="/2018/09/02/算法学习：深度优先搜索/" class="leancloud_visitors" data-flag-title="算法学习：深度优先搜索DFS(一)">
+             <span id="/2018/09/02/搜索/算法学习：深度优先搜索/" class="leancloud_visitors" data-flag-title="算法学习：深度优先搜索DFS(一)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1665,7 +1902,7 @@
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/02/算法学习：深度优先搜索/" rel="contents">
+            <a class="btn" href="/2018/09/02/搜索/算法学习：深度优先搜索/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1719,7 +1956,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/算法学习：深度优先搜索(2)/">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/搜索/算法学习：深度优先搜索(2)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Schoringercatss">
@@ -1738,7 +1975,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/02/算法学习：深度优先搜索(2)/" itemprop="url">算法学习：深度优先搜索DFS(二)</a></h1>
+                <a class="post-title-link" href="/2018/09/02/搜索/算法学习：深度优先搜索(2)/" itemprop="url">算法学习：深度优先搜索DFS(二)</a></h1>
         
 
         <div class="post-meta">
@@ -1790,7 +2027,7 @@
 
           
           
-             <span id="/2018/09/02/算法学习：深度优先搜索(2)/" class="leancloud_visitors" data-flag-title="算法学习：深度优先搜索DFS(二)">
+             <span id="/2018/09/02/搜索/算法学习：深度优先搜索(2)/" class="leancloud_visitors" data-flag-title="算法学习：深度优先搜索DFS(二)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1859,198 +2096,11 @@
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/02/算法学习：深度优先搜索(2)/" rel="contents">
+            <a class="btn" href="/2018/09/02/搜索/算法学习：深度优先搜索(2)/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-	<div>
-	
-	</div>
-
-    <footer class="post-footer">
-      
-		
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/C语言/数组和指针/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Schoringercatss">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哲♂学家的小黑屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/02/C语言/数组和指针/" itemprop="url">数组和指针(一)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T09:39:35+08:00">
-                2018-09-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/02/C语言/数组和指针/" class="leancloud_visitors" data-flag-title="数组和指针(一)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,081字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="数组越界"><a href="#数组越界" class="headerlink" title="数组越界"></a>数组越界</h4><p>​    数组的下标可以是任意整数，可以是负数，也可以大于等于数组的元素个数，还能是小数（截取整数部分），如果出现这以下的情况，编译的时候也不会报错：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> an[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>) an[<span class="number">-2</span>]=<span class="number">5</span>;</span><br><span class="line">(<span class="number">2</span>) an[<span class="number">200</span>]=<span class="number">10</span>;</span><br><span class="line">(<span class="number">3</span>) an[<span class="number">10</span>]=<span class="number">20</span>;</span><br><span class="line">(<span class="number">4</span>) <span class="keyword">int</span> m =an[<span class="number">30</span>];</span><br></pre></td></tr></table></figure>
-<p>这些语句的语法都没有任何问题，编译的时候也不会报错，那么an[-2]是什么含义呢？</p>
-<p>它表示，数组an的起始地址为n，那么a[-2]就代表位于地址 n+(-2)*sizeof(int)处的一个int类型变量，即位于n-8处的一个int型变量。地址n-8处，可能存放的是其他变量，也可能存放的是其他指令，往该处写入数据，就可能意外更改其他变量的值，甚至更改程序的指令，程序继续运行就有可能出错。</p>
-<p>向上述这些情况，就成为数组越界，语句4使m被赋了一个不可预料的值，在有的操作系统中，程序的某些内存区域是不能读取的，如果an[30]正好位于这样的区域，执行到语句(4)就会立即引发错误。</p>
-<p>如果数组越界导致指令被修改的话，甚至会导致在调试器里调试的时候，程序不按照应当的次序运行的怪现象。比如单步调试程序的时候，明明碰到一个条件为真的if语句，却没有执行那个为真的分支。</p>
-<hr>
-<h4 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h4><p>​    在32位系统中，指针是4个字节的，在64位系统中，指针是8个字节的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p =（<span class="keyword">int</span>*)<span class="number">10000</span>；<span class="comment">//这个指针的内容就代表内存地址10000，也可以说p指向内存地址10000</span></span><br><span class="line"><span class="comment">//上述语句执行后，如果想对内存地址10000起始的若干字节进行读写，就通过表达式"*p"来进行，因为表达式"*p"就代表地址p开始的若干字节。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*p = <span class="number">5000</span>；  <span class="comment">//往内存地址10000处的若干字节的内存空间里写入数值5000</span></span><br><span class="line"><span class="keyword">int</span> n =*p;  <span class="comment">//将内存地址10000处起始的若干字节的内容赋值给n，实际效果是使得n=5000</span></span><br></pre></td></tr></table></figure>
-<p>显然，从等号两边的表达式类型应该兼容可以推想出，表达式”*p”的类型应该是int。</p>
-<p>这里的若干字节就是一个int的所占的字节，sizeof(int)=4</p>
-<blockquote>
-<p>T * p;   // T可以是任意类型的名字，例如double，int，char等，下文碰到的T都是这个意思</p>
-</blockquote>
-<p>那么变量p就是一个指针变量（简称指针），p的类型 是T<em>，表达式”T\</em>“的类型是T。而通过表达式”*p”,我们就可以读写从地址p开始的size(T)个字节。</p>
-<p><strong>敲黑板，记笔记</strong></p>
-<p>​    通俗的说，可以认为，表达式”<em>p”可以等价于存放在地址p处的一个T类型的变量，表达式”\</em>P”中的”*“被称作间接引用运算符。</p>
-<p>​    需要记住的是，不论T是什么类型，sizeof(T*)的值都是4或者8，一般来说编译器都是4个字节。</p>
-<p>​    记住，对于类型为T的变量x，表达式”&amp;x”就表示变量x的地址，表达式”&amp;x”的类型是T *。</p>
-<h5 id="不同类型的指针是不能直接进行赋值的"><a href="#不同类型的指针是不能直接进行赋值的" class="headerlink" title="不同类型的指针是不能直接进行赋值的"></a>不同类型的指针是不能直接进行赋值的</h5><p>​    不同类型的指针，如果不经过强制类型转换，是不能直接互相赋值的，如下列代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)<span class="keyword">int</span> * pn, <span class="keyword">char</span> *pc, <span class="keyword">char</span> c =<span class="number">0x65</span>;</span><br><span class="line">(<span class="number">2</span>)pn = pc;</span><br><span class="line">(<span class="number">3</span>)pn =&amp; c;</span><br><span class="line">(<span class="number">4</span>)<span class="keyword">int</span> n =*pn;</span><br><span class="line">(<span class="number">5</span>) *pn = <span class="number">0x12345678</span>;</span><br></pre></td></tr></table></figure>
-<p>​    语句2和语句3都会在编译的时候保存，错误信息是类型不兼容，因为在这两条语句中，等号左边的类型是int <em>，而等号右边的类型是 char </em>。语句4则没有问题，虽然表达式”&amp;c”的类型是char *,但是其值经过强制类型转换后，赋给pn是可以的，语句4执行的效果是使得pn指向c的地址。</p>
-<p>​    思考题：语句5的执行效果是使得n的值变为0x65吗，语句6编译会不会出错？如果不出错，执行后会有什么结果呢？会不会有问题？</p>
-
-          
         
       
     </div>
@@ -2141,7 +2191,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2152,7 +2202,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2163,7 +2213,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
