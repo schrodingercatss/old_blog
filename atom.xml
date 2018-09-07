@@ -18,8 +18,8 @@
   
   <entry>
     <title>Codeforces Beta Round</title>
-    <link href="http://maojunjie666.top/2018/09/07/codeforces/Codeforces%20Beta%20Round%20#1%20/"/>
-    <id>http://maojunjie666.top/2018/09/07/codeforces/Codeforces Beta Round #1 /</id>
+    <link href="http://maojunjie666.top/2018/09/07/codeforces/Codeforces%20Beta%20Round%20#1%20%20C%E9%A2%98/"/>
+    <id>http://maojunjie666.top/2018/09/07/codeforces/Codeforces Beta Round #1  C题/</id>
     <published>2018-09-07T06:23:23.631Z</published>
     <updated>2018-09-07T15:50:07.394Z</updated>
     
@@ -31,7 +31,7 @@
 &lt;p&gt;题意：&lt;/p&gt;
 &lt;p&gt;给出三个点的坐标，这三个点可能是多个正多边形的顶点，求其中面积最小的多边形的面积&lt;/p&gt;
 &lt;p&gt;题解：&lt;/p&gt;
-&lt;!--�1--&gt;
+&lt;!--�0--&gt;
 &lt;p&gt;本题收获：&lt;/p&gt;
 &lt;p&gt;1.学会了浮点数求gcd 的方法，依然是辗转相除法，但是需要用到fmod(x,y) (求出x/y的余数)，而且误差要控制在0.01左右，太精确会出错&lt;/p&gt;
 &lt;p&gt;2.误差处理，因不能过于相信公式，忽略了计算机中每一步浮点运算都可能带来误差，应该尽量减少误差&lt;/p&gt;
