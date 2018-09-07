@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://maojunjie666.top/"/>
-  <updated>2018-09-06T14:00:01.524Z</updated>
+  <updated>2018-09-07T15:50:07.394Z</updated>
   <id>http://maojunjie666.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Codeforces Beta Round</title>
+    <link href="http://maojunjie666.top/2018/09/07/codeforces/Codeforces%20Beta%20Round%20#1%20/"/>
+    <id>http://maojunjie666.top/2018/09/07/codeforces/Codeforces Beta Round #1 /</id>
+    <published>2018-09-07T06:23:23.631Z</published>
+    <updated>2018-09-07T15:50:07.394Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://codeforces.com/contest/1/problem/C" target="_blank" rel="noopener">题目传送门</a></p><p>题意：</p><p>给出三个点的坐标，这三个点可能是多个正多边形的顶点，求其中面积最小的多边形的面积</p><p>题解：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.外接圆的求法： </span><br><span class="line">(1) 有给定的坐标我们不难求出三条边的边长，rea,reb,rec;</span><br><span class="line">(2) 又海伦公式得到三角形的面积： 周长cc=(rea+reb+rec)/2.0 </span><br><span class="line">面积等于： ss=sqrt(cc*(cc-rea)*(cc-reb)*(cc-rec));</span><br><span class="line">(3) rr=rea*reb*rec/(4*ss);  //证明就不详细说了</span><br><span class="line">得到外接圆的半径之后：</span><br><span class="line">   我们再来求出每一条边对应的圆心角a,b,c;</span><br><span class="line">   求出a,b,c圆心角的最大公约数st;</span><br><span class="line">这样我们就可以知道他是边数： 2*pi/st;</span><br><span class="line">所以得到最小单位的三角形的面积为Area=rr*rr*sin(st)/2;</span><br><span class="line">总面积只需再剩上他的边数就可以得到。</span><br></pre></td></tr></table></figure><p>本题收获：</p><p>1.学会了浮点数求gcd 的方法，依然是辗转相除法，但是需要用到fmod(x,y) (求出x/y的余数)，而且误差要控制在0.01左右，太精确会出错</p><p>2.误差处理，因不能过于相信公式，忽略了计算机中每一步浮点运算都可能带来误差，应该尽量减少误差</p><p>比如求三个圆心角的时候，直接用公式，最终的三个角的和，和360度的值相差很大，需要先求出两个小圆心角，最后减去，才能保证误差尽量小</p><a id="more"></a><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="number">3.1415926535</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> esp=<span class="number">0.01</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">  <span class="keyword">double</span> x,y;</span><br><span class="line">  <span class="comment">//求两点之间的长度</span></span><br><span class="line">  <span class="function"><span class="keyword">double</span> <span class="title">solen</span><span class="params">(node a)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-x)*(a.x-x)+(a.y-y)*(a.y-y));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dgcd</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span>  <span class="comment">//最小公倍数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;esp) <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">if</span>(b&lt;esp) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">return</span> dgcd(b,<span class="built_in">fmod</span>(a,b));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  node a,b,c;</span><br><span class="line">  <span class="keyword">double</span> rea,reb,rec,Area;</span><br><span class="line">  <span class="keyword">double</span> angle[<span class="number">3</span>];  <span class="comment">//角度</span></span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%lf%lf%lf%lf%lf%lf"</span>,&amp;a.x,&amp;a.y,&amp;b.x,&amp;b.y,&amp;c.x,&amp;c.y);</span><br><span class="line">        rea=a.solen(b);</span><br><span class="line">        reb=a.solen(c);</span><br><span class="line">        rec=b.solen(c);</span><br><span class="line">   <span class="comment">//海伦公式</span></span><br><span class="line">   <span class="keyword">double</span> cc=(rea+reb+rec)/<span class="number">2.0</span>;</span><br><span class="line">   Area=<span class="built_in">sqrt</span>(cc*(cc-rea)*(cc-reb)*(cc-rec));</span><br><span class="line">  <span class="comment">//求得外接圆半径r</span></span><br><span class="line">   <span class="keyword">double</span>  rr=rea*reb*rec/(<span class="number">4</span>*Area);</span><br><span class="line">   angle[<span class="number">0</span>]=<span class="built_in">acos</span>(<span class="number">1</span>-rea*rea/(<span class="number">2</span>*rr*rr));</span><br><span class="line">   angle[<span class="number">1</span>]=<span class="built_in">acos</span>(<span class="number">1</span>-reb*reb/(<span class="number">2</span>*rr*rr));</span><br><span class="line">   angle[<span class="number">2</span>]=<span class="number">2</span>*PI-angle[<span class="number">0</span>]-angle[<span class="number">1</span>];   <span class="comment">//这里用2π减去上面两个角，可以让精度更准</span></span><br><span class="line">   <span class="comment">//求出角之间的最大公约数</span></span><br><span class="line">   <span class="keyword">double</span> ff=angle[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">     ff=dgcd(ff,angle[i]);</span><br><span class="line">  <span class="comment">//求得是多少边行</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%.6lf\n"</span>,(rr*rr*PI*<span class="built_in">sin</span>(ff))/ff);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://codeforces.com/contest/1/problem/C&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：&lt;/p&gt;
+&lt;p&gt;给出三个点的坐标，这三个点可能是多个正多边形的顶点，求其中面积最小的多边形的面积&lt;/p&gt;
+&lt;p&gt;题解：&lt;/p&gt;
+&lt;!--�1--&gt;
+&lt;p&gt;本题收获：&lt;/p&gt;
+&lt;p&gt;1.学会了浮点数求gcd 的方法，依然是辗转相除法，但是需要用到fmod(x,y) (求出x/y的余数)，而且误差要控制在0.01左右，太精确会出错&lt;/p&gt;
+&lt;p&gt;2.误差处理，因不能过于相信公式，忽略了计算机中每一步浮点运算都可能带来误差，应该尽量减少误差&lt;/p&gt;
+&lt;p&gt;比如求三个圆心角的时候，直接用公式，最终的三个角的和，和360度的值相差很大，需要先求出两个小圆心角，最后减去，才能保证误差尽量小&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算几何" scheme="http://maojunjie666.top/categories/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    
+    
+      <category term="codeforces" scheme="http://maojunjie666.top/tags/codeforces/"/>
+    
+      <category term="计算几何" scheme="http://maojunjie666.top/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>哈理工软件学院第三届ACM编程决赛-高年级组 E题：The Forest</title>
@@ -72,19 +104,22 @@
     <title>哈理工软件学院第三届ACM编程决赛-高年级组 B题：Is Sorted</title>
     <link href="http://maojunjie666.top/2018/09/06/%E6%8E%92%E5%BA%8F/Is%20Sorted/"/>
     <id>http://maojunjie666.top/2018/09/06/排序/Is Sorted/</id>
-    <published>2018-09-06T02:00:00.000Z</published>
-    <updated>2018-09-06T07:38:50.578Z</updated>
+    <published>2018-09-05T16:00:00.000Z</published>
+    <updated>2018-09-07T06:46:25.117Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://www.nowcoder.com/acm/contest/21/B" target="_blank" rel="noopener">题目传送门</a></p><p>因为这题的数据量不是太大，我们可以直接用冒泡排序的方式进行比较，如果在比较的过程中，发现前一个元素大于等于后一个元素，就说明数列不是严格递增数列，将flag置为false，跳出循环。</p><a id="more"></a><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">105</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t,n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">bool</span> flag=<span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)<span class="built_in">cin</span>&gt;&gt;arr[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[j]&gt;=arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">                    flag=<span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,flag?<span class="string">"Yes"</span>:<span class="string">"No"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://www.nowcoder.com/acm/contest/21/B" target="_blank" rel="noopener">题目传送门</a></p><p>因为这题的数据量不是太大，我们可以直接用冒泡排序的方式进行比较，如果在比较的过程中，发现前一个元素大于等于后一个元素，就说明数列不是严格递增数列，将flag置为false，跳出循环。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">105</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t,n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">bool</span> flag=<span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)<span class="built_in">cin</span>&gt;&gt;arr[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[j]&gt;=arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">                    flag=<span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,flag?<span class="string">"Yes"</span>:<span class="string">"No"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/acm/contest/21/B&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目传送门&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;因为这题的数据量不是太大，我们可以直接用冒泡排序的方式进行比较，如果在比较的过程中，发现前一个元素大于等于后一个元素，就说明数列不是严格递增数列，将flag置为false，跳出循环。&lt;/p&gt;
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/acm/contest/21/B&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;因为这题的数据量不是太大，我们可以直接用冒泡排序的方式进行比较，如果在比较
+      
     
     </summary>
     
-      <category term="排序" scheme="http://maojunjie666.top/categories/%E6%8E%92%E5%BA%8F/"/>
+      <category term="-排序" scheme="http://maojunjie666.top/categories/%E6%8E%92%E5%BA%8F/"/>
     
     
       <category term="排序" scheme="http://maojunjie666.top/tags/%E6%8E%92%E5%BA%8F/"/>
@@ -239,30 +274,6 @@
   </entry>
   
   <entry>
-    <title>什么是EOF</title>
-    <link href="http://maojunjie666.top/2018/09/02/C%E8%AF%AD%E8%A8%80/EOF/"/>
-    <id>http://maojunjie666.top/2018/09/02/C语言/EOF/</id>
-    <published>2018-09-02T14:14:21.000Z</published>
-    <updated>2018-09-03T10:02:47.535Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="什么是EOF？"><a href="#什么是EOF？" class="headerlink" title="什么是EOF？"></a>什么是EOF？</h4><p>很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。</p><p>首先来看，百度百科给其的定义：</p><p>EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。<br><a id="more"></a></p><hr><h4 id="举例子"><a href="#举例子" class="headerlink" title="举例子"></a>举例子</h4><p>简单来说，eof就是在文件末尾添加的一个字符。在C语言中，EOF是一个关键字，它的值是-1，这样不会与ASCII码冲突（这个以后再详说）</p><p>在window中，eof使用快捷键：<code>ctrl+z</code> 来输入。</p><p>又比如，在下面这个例子中，在8的末尾是有一个eof的，当读取完8后，继续往下读，读到了eof，结束读入。</p><blockquote><p>1 2</p><p>3 4</p><p>5 6</p><p>7 8</p></blockquote><p>EOF在OJ是用来针对多组输入问题的，当你不知道系统有几组输入时，你都可以使用EOF关键字判断，因为不论是有3组、4组还是n组，只要读到了EOF关键字，肯定能表示测试用例已经读完。</p><hr><h4 id="代码举例（C语言）"><a href="#代码举例（C语言）" class="headerlink" title="代码举例（C语言）"></a>代码举例（C语言）</h4><p>现在我们有一个不确定有多少组输入的A+B问题。</p><p>C语言比较方便，因为c语言中定义了EOF关键字</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF)&#123;    <span class="comment">//这里当scanf读取正确时，返回参数个数，如果读到EOF，返回EOF</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当scanf返回EOF，不满足while循环的条件时就结束了输入，非常方便。</p><hr><h4 id="代码举例-python"><a href="#代码举例-python" class="headerlink" title="代码举例(python)"></a>代码举例(python)</h4><p>在python中，是没有定义eof关键字的，但是我们可以使用异常捕获来针对eof关键字。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">       print(sum(int(i) <span class="keyword">for</span> i <span class="keyword">in</span> input().split()))</span><br><span class="line"><span class="keyword">except</span> EOFError:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure><p>当捕获到eof时，就会执行pass语句，pass语句表示什么都不执行，然后循环就会结束了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;什么是EOF？&quot;&gt;&lt;a href=&quot;#什么是EOF？&quot; class=&quot;headerlink&quot; title=&quot;什么是EOF？&quot;&gt;&lt;/a&gt;什么是EOF？&lt;/h4&gt;&lt;p&gt;很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。&lt;/p&gt;
-&lt;p&gt;首先来看，百度百科给其的定义：&lt;/p&gt;
-&lt;p&gt;EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="C语言" scheme="http://maojunjie666.top/categories/C%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="C语言" scheme="http://maojunjie666.top/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>18级编程俱乐部新生赛div1轮题解</title>
     <link href="http://maojunjie666.top/2018/09/02/%E7%BC%96%E7%A8%8B%E4%BF%B1%E4%B9%90%E9%83%A8%E6%9C%88%E8%B5%9B/mrdiv1/"/>
     <id>http://maojunjie666.top/2018/09/02/编程俱乐部月赛/mrdiv1/</id>
@@ -284,6 +295,30 @@
     
     
       <category term="新生赛题解" scheme="http://maojunjie666.top/tags/%E6%96%B0%E7%94%9F%E8%B5%9B%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>什么是EOF</title>
+    <link href="http://maojunjie666.top/2018/09/02/C%E8%AF%AD%E8%A8%80/EOF/"/>
+    <id>http://maojunjie666.top/2018/09/02/C语言/EOF/</id>
+    <published>2018-09-02T14:14:21.000Z</published>
+    <updated>2018-09-03T10:02:47.535Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="什么是EOF？"><a href="#什么是EOF？" class="headerlink" title="什么是EOF？"></a>什么是EOF？</h4><p>很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。</p><p>首先来看，百度百科给其的定义：</p><p>EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。<br><a id="more"></a></p><hr><h4 id="举例子"><a href="#举例子" class="headerlink" title="举例子"></a>举例子</h4><p>简单来说，eof就是在文件末尾添加的一个字符。在C语言中，EOF是一个关键字，它的值是-1，这样不会与ASCII码冲突（这个以后再详说）</p><p>在window中，eof使用快捷键：<code>ctrl+z</code> 来输入。</p><p>又比如，在下面这个例子中，在8的末尾是有一个eof的，当读取完8后，继续往下读，读到了eof，结束读入。</p><blockquote><p>1 2</p><p>3 4</p><p>5 6</p><p>7 8</p></blockquote><p>EOF在OJ是用来针对多组输入问题的，当你不知道系统有几组输入时，你都可以使用EOF关键字判断，因为不论是有3组、4组还是n组，只要读到了EOF关键字，肯定能表示测试用例已经读完。</p><hr><h4 id="代码举例（C语言）"><a href="#代码举例（C语言）" class="headerlink" title="代码举例（C语言）"></a>代码举例（C语言）</h4><p>现在我们有一个不确定有多少组输入的A+B问题。</p><p>C语言比较方便，因为c语言中定义了EOF关键字</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF)&#123;    <span class="comment">//这里当scanf读取正确时，返回参数个数，如果读到EOF，返回EOF</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当scanf返回EOF，不满足while循环的条件时就结束了输入，非常方便。</p><hr><h4 id="代码举例-python"><a href="#代码举例-python" class="headerlink" title="代码举例(python)"></a>代码举例(python)</h4><p>在python中，是没有定义eof关键字的，但是我们可以使用异常捕获来针对eof关键字。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">       print(sum(int(i) <span class="keyword">for</span> i <span class="keyword">in</span> input().split()))</span><br><span class="line"><span class="keyword">except</span> EOFError:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure><p>当捕获到eof时，就会执行pass语句，pass语句表示什么都不执行，然后循环就会结束了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;什么是EOF？&quot;&gt;&lt;a href=&quot;#什么是EOF？&quot; class=&quot;headerlink&quot; title=&quot;什么是EOF？&quot;&gt;&lt;/a&gt;什么是EOF？&lt;/h4&gt;&lt;p&gt;很多萌新都问到，什么是eof，所以我特地写了一篇博文来介绍EOF。&lt;/p&gt;
+&lt;p&gt;首先来看，百度百科给其的定义：&lt;/p&gt;
+&lt;p&gt;EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="C语言" scheme="http://maojunjie666.top/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="C语言" scheme="http://maojunjie666.top/tags/C%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
@@ -480,29 +515,6 @@
       <category term="DFS" scheme="http://maojunjie666.top/tags/DFS/"/>
     
       <category term="深度优先搜索" scheme="http://maojunjie666.top/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数组和指针(一)</title>
-    <link href="http://maojunjie666.top/2018/09/02/C%E8%AF%AD%E8%A8%80/%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88/"/>
-    <id>http://maojunjie666.top/2018/09/02/C语言/数组和指针/</id>
-    <published>2018-09-02T01:39:35.000Z</published>
-    <updated>2018-09-02T08:33:16.506Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="数组越界"><a href="#数组越界" class="headerlink" title="数组越界"></a>数组越界</h4><p>​    数组的下标可以是任意整数，可以是负数，也可以大于等于数组的元素个数，还能是小数（截取整数部分），如果出现这以下的情况，编译的时候也不会报错：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> an[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>) an[<span class="number">-2</span>]=<span class="number">5</span>;</span><br><span class="line">(<span class="number">2</span>) an[<span class="number">200</span>]=<span class="number">10</span>;</span><br><span class="line">(<span class="number">3</span>) an[<span class="number">10</span>]=<span class="number">20</span>;</span><br><span class="line">(<span class="number">4</span>) <span class="keyword">int</span> m =an[<span class="number">30</span>];</span><br></pre></td></tr></table></figure><p>这些语句的语法都没有任何问题，编译的时候也不会报错，那么an[-2]是什么含义呢？</p><p>它表示，数组an的起始地址为n，那么a[-2]就代表位于地址 n+(-2)*sizeof(int)处的一个int类型变量，即位于n-8处的一个int型变量。地址n-8处，可能存放的是其他变量，也可能存放的是其他指令，往该处写入数据，就可能意外更改其他变量的值，甚至更改程序的指令，程序继续运行就有可能出错。</p><p>向上述这些情况，就成为数组越界，语句4使m被赋了一个不可预料的值，在有的操作系统中，程序的某些内存区域是不能读取的，如果an[30]正好位于这样的区域，执行到语句(4)就会立即引发错误。</p><p>如果数组越界导致指令被修改的话，甚至会导致在调试器里调试的时候，程序不按照应当的次序运行的怪现象。比如单步调试程序的时候，明明碰到一个条件为真的if语句，却没有执行那个为真的分支。</p><hr><h4 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h4><p>​    在32位系统中，指针是4个字节的，在64位系统中，指针是8个字节的。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p =（<span class="keyword">int</span>*)<span class="number">10000</span>；<span class="comment">//这个指针的内容就代表内存地址10000，也可以说p指向内存地址10000</span></span><br><span class="line"><span class="comment">//上述语句执行后，如果想对内存地址10000起始的若干字节进行读写，就通过表达式"*p"来进行，因为表达式"*p"就代表地址p开始的若干字节。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*p = <span class="number">5000</span>；  <span class="comment">//往内存地址10000处的若干字节的内存空间里写入数值5000</span></span><br><span class="line"><span class="keyword">int</span> n =*p;  <span class="comment">//将内存地址10000处起始的若干字节的内容赋值给n，实际效果是使得n=5000</span></span><br></pre></td></tr></table></figure><p>显然，从等号两边的表达式类型应该兼容可以推想出，表达式”*p”的类型应该是int。</p><p>这里的若干字节就是一个int的所占的字节，sizeof(int)=4</p><blockquote><p>T * p;   // T可以是任意类型的名字，例如double，int，char等，下文碰到的T都是这个意思</p></blockquote><p>那么变量p就是一个指针变量（简称指针），p的类型 是T<em>，表达式”T\</em>“的类型是T。而通过表达式”*p”,我们就可以读写从地址p开始的size(T)个字节。</p><p><strong>敲黑板，记笔记</strong></p><p>​    通俗的说，可以认为，表达式”<em>p”可以等价于存放在地址p处的一个T类型的变量，表达式”\</em>P”中的”*“被称作间接引用运算符。</p><p>​    需要记住的是，不论T是什么类型，sizeof(T*)的值都是4或者8，一般来说编译器都是4个字节。</p><p>​    记住，对于类型为T的变量x，表达式”&amp;x”就表示变量x的地址，表达式”&amp;x”的类型是T *。</p><h5 id="不同类型的指针是不能直接进行赋值的"><a href="#不同类型的指针是不能直接进行赋值的" class="headerlink" title="不同类型的指针是不能直接进行赋值的"></a>不同类型的指针是不能直接进行赋值的</h5><p>​    不同类型的指针，如果不经过强制类型转换，是不能直接互相赋值的，如下列代码：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)<span class="keyword">int</span> * pn, <span class="keyword">char</span> *pc, <span class="keyword">char</span> c =<span class="number">0x65</span>;</span><br><span class="line">(<span class="number">2</span>)pn = pc;</span><br><span class="line">(<span class="number">3</span>)pn =&amp; c;</span><br><span class="line">(<span class="number">4</span>)<span class="keyword">int</span> n =*pn;</span><br><span class="line">(<span class="number">5</span>) *pn = <span class="number">0x12345678</span>;</span><br></pre></td></tr></table></figure><p>​    语句2和语句3都会在编译的时候保存，错误信息是类型不兼容，因为在这两条语句中，等号左边的类型是int <em>，而等号右边的类型是 char </em>。语句4则没有问题，虽然表达式”&amp;c”的类型是char *,但是其值经过强制类型转换后，赋给pn是可以的，语句4执行的效果是使得pn指向c的地址。</p><p>​    思考题：语句5的执行效果是使得n的值变为0x65吗，语句6编译会不会出错？如果不出错，执行后会有什么结果呢？会不会有问题？</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;数组越界&quot;&gt;&lt;a href=&quot;#数组越界&quot; class=&quot;headerlink&quot; title=&quot;数组越界&quot;&gt;&lt;/a&gt;数组越界&lt;/h4&gt;&lt;p&gt;​    数组的下标可以是任意整数，可以是负数，也可以大于等于数组的元素个数，还能是小数（截取整数部分），如果出现这以下的情
-      
-    
-    </summary>
-    
-    
-      <category term="C语言" scheme="http://maojunjie666.top/tags/C%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
