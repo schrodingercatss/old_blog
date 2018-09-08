@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="哲♂学家的小黑屋">
 <meta property="og:description" content="题目传送门 这题我们不能直接用剧院广场的面积去除以瓷砖面积，因为瓷砖不能被分割，瓷砖的总面积可以大于剧院广场的总面积。因此，我们可以分别针对剧院广场的长和宽分别除以瓷砖的边长a来计算覆盖长和覆盖宽各需要多少瓷砖，然后乘起来即可。这题交了2次才AC，又忘了考虑数据范围，因为长或宽最大为10亿，肯定有longlong范围的数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-08T00:45:02.095Z">
+<meta property="og:updated_time" content="2018-09-08T15:19:16.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces Beta Round 1 A题：Theatre Square">
 <meta name="twitter:description" content="题目传送门 这题我们不能直接用剧院广场的面积去除以瓷砖面积，因为瓷砖不能被分割，瓷砖的总面积可以大于剧院广场的总面积。因此，我们可以分别针对剧院广场的长和宽分别除以瓷砖的边长a来计算覆盖长和覆盖宽各需要多少瓷砖，然后乘起来即可。这题交了2次才AC，又忘了考虑数据范围，因为长或宽最大为10亿，肯定有longlong范围的数据。">
@@ -447,8 +447,7 @@
 
       
         <p><a href="http://codeforces.com/contest/1/problem/A" target="_blank" rel="noopener">题目传送门</a></p>
-<p>这题我们不能直接用剧院广场的面积去除以瓷砖面积，因为瓷砖不能被分割，瓷砖的总面积可以大于剧院广场的总面积。因此，我们可以分别针对剧院广场的长和宽分别除以瓷砖的边长a来计算覆盖长和覆盖宽各需要多少瓷砖，然后乘起来即可。这题交了2次才AC，又忘了考虑数据范围，因为长或宽最大为10亿，肯定有longlong范围的数据。<a id="more"></a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,a;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;a;</span><br><span class="line">    ll s=<span class="built_in">ceil</span>(n*<span class="number">1.0</span>/a);</span><br><span class="line">    ll v=<span class="built_in">ceil</span>(m*<span class="number">1.0</span>/a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,s*v);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这题我们不能直接用剧院广场的面积去除以瓷砖面积，因为瓷砖不能被分割，瓷砖的总面积可以大于剧院广场的总面积。因此，我们可以分别针对剧院广场的长和宽分别除以瓷砖的边长a来计算覆盖长和覆盖宽各需要多少瓷砖，然后乘起来即可。这题交了2次才AC，又忘了考虑数据范围，因为长或宽最大为10亿，肯定有longlong范围的数据。<a id="more"></a><br><!-- more --><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,a;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;a;</span><br><span class="line">    ll s=<span class="built_in">ceil</span>(n*<span class="number">1.0</span>/a);</span><br><span class="line">    ll v=<span class="built_in">ceil</span>(m*<span class="number">1.0</span>/a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,s*v);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -575,7 +574,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
