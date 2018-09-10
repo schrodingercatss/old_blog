@@ -306,6 +306,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/10/计算几何/向量运算/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Schoringercatss">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哲♂学家的小黑屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/10/计算几何/向量运算/" itemprop="url">计算几何----向量基本运算模板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T14:43:43+08:00">
+                2018-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算几何/" itemprop="url" rel="index">
+                    <span itemprop="name">计算几何</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/10/计算几何/向量运算/" class="leancloud_visitors" data-flag-title="计算几何----向量基本运算模板">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  560字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>向量：</strong></p>
+<p>v1=(x1,y1) ，v2=(x2,y2)</p>
+<p><strong>向量的加减与数乘：</strong></p>
+<p>v1 ± v2=（ x1 ± x2 , y1 ± y2 )</p>
+<p><strong>内积：</strong></p>
+<p>v1 · v2 =|v1|·|v2|cos&lt;v1,v2&gt; = x1x2 + y1y2</p>
+<p><strong>外积：</strong></p>
+<p>|v1×v2| = |v1|·|v2|sin&lt;v1,v2&gt;</p>
+<p>（注：在数字上并无二维向量外积的定义，但我们常将下图操作定义为二维向量的外积：</p>
+<p><img src="https://i.loli.net/2018/09/10/5b96127c83a14.png" alt="2.png"></p>
+<p>且有如下性质：</p>
+<p>(1) 顺时针为负，逆时针为正</p>
+<p>(2) v1||v2  ⇔  v1 × v2  = 0</p>
+<p>(3) 外积的几何意义为平行四边形的有向面积。</p>
+<p><strong>向量旋转公式：</strong></p>
+<p>x‘ = xcosθ - ysinθ</p>
+<p>y’ = xsinθ + ycosθ</p>
+<hr>
+<h4 id="基本向量运算模板"><a href="#基本向量运算模板" class="headerlink" title="基本向量运算模板"></a>基本向量运算模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for(int i=a;i&lt;n;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> close() ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> esp =<span class="number">1e-6</span>; <span class="comment">//esp用于控制精度</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI =<span class="built_in">acos</span>(<span class="number">-1.0</span>); <span class="comment">//pi</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> x,y;</span><br><span class="line">    Point()&#123;&#125;</span><br><span class="line">    Point(<span class="keyword">double</span> x,<span class="keyword">double</span> y):x(x),y(y)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> Point Vector;</span><br><span class="line"></span><br><span class="line">Vector <span class="keyword">operator</span>+(Vector a,Vector b)&#123;<span class="keyword">return</span> Vector(a.x+b.x,a.y+b.y);&#125;<span class="comment">//加</span></span><br><span class="line">Vector <span class="keyword">operator</span>-(Vector a,Vector b)&#123;<span class="keyword">return</span> Vector(a.x-b.x,a.y-b.y);&#125;<span class="comment">//减</span></span><br><span class="line">Vector <span class="keyword">operator</span>*(Vector a,<span class="keyword">double</span> p)&#123;<span class="keyword">return</span> Vector(a.x*p,a.y*p);&#125;<span class="comment">//乘</span></span><br><span class="line">Vector <span class="keyword">operator</span>/(Vector a,<span class="keyword">double</span> p)&#123;<span class="keyword">return</span> Vector(a.x/p,a.y/p);&#125;<span class="comment">//除</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dcmp</span><span class="params">(<span class="keyword">double</span> x)</span>  <span class="comment">//精度三态函数(&gt;0,&lt;0,=0)，判断这个值与0的关系</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">fabs</span>(x)&lt;esp)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(x&gt;<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span> ==(<span class="keyword">const</span> Point &amp;a,<span class="keyword">const</span> Point &amp;b)  <span class="comment">//判断向量是否相等</span></span><br><span class="line">&#123;<span class="keyword">return</span> dcmp(a.x-b.x)==<span class="number">0</span> &amp;&amp; dcmp(a.y-b.y)==<span class="number">0</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Dot</span><span class="params">(Vector a,Vector b)</span></span>&#123;<span class="keyword">return</span> a.x*b.x+a.y*b.y;&#125;  <span class="comment">//点积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Length</span><span class="params">(Vector a)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">sqrt</span>(Dot(a,a));&#125; <span class="comment">//模</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Angle</span><span class="params">(Vector a,Vector b)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">acos</span>(Dot(a,b)/Length(a)/Length(b));&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Vector a,Vector b)</span></span>&#123;<span class="keyword">return</span> a.x*b.y-a.y*b.x;&#125; <span class="comment">//外积</span></span><br><span class="line"><span class="function">Vector <span class="title">Rotate</span><span class="params">(Vector a,<span class="keyword">double</span> rad)</span>  <span class="comment">//逆时针旋转</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="keyword">return</span> Vector(a.x*<span class="built_in">cos</span>(rad)-a.y*<span class="built_in">sin</span>(rad),a.x*<span class="built_in">sin</span>(rad)+a.y*<span class="built_in">cos</span>(rad));&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Distance</span><span class="params">(Point a,Point b)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));&#125; <span class="comment">//两点间距离</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Area</span><span class="params">(Point a,Point b,Point c)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">fabs</span>(Cross(b-a,c-a)/<span class="number">2</span>);&#125; <span class="comment">//三角形面积</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">Vector <span class="title">a</span><span class="params">(<span class="number">5</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="function">Vector <span class="title">b</span><span class="params">(<span class="number">6</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    Vector c;</span><br><span class="line">    c=a*<span class="number">3</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;c.x&lt;&lt;<span class="string">" "</span>&lt;&lt;c.y&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;Area(a,b,c)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+	<div>
+	
+	</div>
+
+    <footer class="post-footer">
+      
+		
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/08/java/2018年8月2日/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -444,8 +649,7 @@
 <p>多态的优缺点、instanceof关键字</p>
 <hr>
 <h4 id="继承中方法的关系"><a href="#继承中方法的关系" class="headerlink" title="继承中方法的关系"></a>继承中方法的关系</h4><p>1.同名方法:</p>
-<p>同名方法会被子类的方法所覆盖，这种也被称为重写。</p>
-<p>可以使用super.方法名（参数）来调用父类方法。<br>
+<p>同名方法会被子类的方法所覆盖，这种也被称为重写。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/08/java/2018年8月2日/" rel="contents">
@@ -639,8 +843,7 @@
           <p>内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、</p>
 <p>java的代码块、构造函数与静态代码块、构造代码块的作用</p>
 <hr>
-<h4 id="继承的基本概念"><a href="#继承的基本概念" class="headerlink" title="继承的基本概念"></a>继承的基本概念</h4><p>java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。</p>
-<p><strong>注：继承体现的是一种关系。</strong><br>
+<h4 id="继承的基本概念"><a href="#继承的基本概念" class="headerlink" title="继承的基本概念"></a>继承的基本概念</h4><p>java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/08/java/2018年8月1日/" rel="contents">
@@ -835,10 +1038,7 @@
 <hr>
 <h4 id="包的概念"><a href="#包的概念" class="headerlink" title="包的概念"></a>包的概念</h4><p>package是在使用多个类或接口时，为了避免名称重复而采用的一种措施，直接在程序中加入package关键字即可。</p>
 <p>Java中提供的包主要有以下3种用途:</p>
-<p>  1) 将功能相近的类放在同一个包中，可以方便查找与使用。</p>
-<p>  2) 由于在不同包中可以存在同名类，所以使用包在一定程度上可以避免命名冲突。</p>
-<p>  3) 在Java中，某次访问权限是以包为单位的。</p>
-<p>一个包中可以包含一个或多个类。</p>
+<p>  1) 将功能相近的类放在同一个包中，可以方便查找与使用。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/08/java/2018年7月30日/" rel="contents">
@@ -1088,7 +1288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/08/CFR2-A题/">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/08/codeforces/CFR2-A题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Schoringercatss">
@@ -1107,7 +1307,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/08/CFR2-A题/" itemprop="url">Codeforces Beta Round 2 A题：Winner</a></h1>
+                <a class="post-title-link" href="/2018/09/08/codeforces/CFR2-A题/" itemprop="url">Codeforces Beta Round 2 A题：Winner</a></h1>
         
 
         <div class="post-meta">
@@ -1159,7 +1359,7 @@
 
           
           
-             <span id="/2018/09/08/CFR2-A题/" class="leancloud_visitors" data-flag-title="Codeforces Beta Round 2 A题：Winner">
+             <span id="/2018/09/08/codeforces/CFR2-A题/" class="leancloud_visitors" data-flag-title="Codeforces Beta Round 2 A题：Winner">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1229,7 +1429,7 @@
 <p>其次，再次模拟一遍游戏，当找到第一个达到m且最终的分数也大于等于m的人，输出即可。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/08/CFR2-A题/" rel="contents">
+            <a class="btn" href="/2018/09/08/codeforces/CFR2-A题/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2041,225 +2241,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/06/动态规划/第39阶台阶/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Schoringercatss">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哲♂学家的小黑屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/06/动态规划/第39阶台阶/" itemprop="url">哈理工软件学院第三届ACM编程决赛-高年级组 D题：Tu Hao's Problem</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T11:49:45+08:00">
-                2018-09-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/递归/" itemprop="url" rel="index">
-                    <span itemprop="name">递归</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/递归/动态规划/" itemprop="url" rel="index">
-                    <span itemprop="name">动态规划</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/递归/动态规划/排列组合/" itemprop="url" rel="index">
-                    <span itemprop="name">排列组合</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/06/动态规划/第39阶台阶/" class="leancloud_visitors" data-flag-title="哈理工软件学院第三届ACM编程决赛-高年级组 D题：Tu Hao's Problem">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  938字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://www.nowcoder.com/acm/contest/21/D" target="_blank" rel="noopener">题目传送门</a></p>
-<p>这题是蓝桥杯的一道填空题改编过来的，因为是填空题，数据量也比较小，可以直接使用暴力递归的方式来解决，但是在oj上有时间限制1s，使用递归肯定会超时。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/06/动态规划/第39阶台阶/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-	<div>
-	
-	</div>
-
-    <footer class="post-footer">
-      
-		
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2309,7 +2295,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

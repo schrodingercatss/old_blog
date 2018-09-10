@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、 java的代码块、构造函数与静态代码块、构造代码块的作用  继承的基本概念java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。 注：继承体现的是一种关系。">
+<meta name="description" content="内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、 java的代码块、构造函数与静态代码块、构造代码块的作用  继承的基本概念java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。">
 <meta name="keywords" content="java,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java学习杂项笔记(part3)">
 <meta property="og:url" content="http://maojunjie666.top/2018/09/08/java/2018年8月1日/index.html">
 <meta property="og:site_name" content="哲♂学家的小黑屋">
-<meta property="og:description" content="内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、 java的代码块、构造函数与静态代码块、构造代码块的作用  继承的基本概念java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。 注：继承体现的是一种关系。">
+<meta property="og:description" content="内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、 java的代码块、构造函数与静态代码块、构造代码块的作用  继承的基本概念java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-08T15:20:03.778Z">
+<meta property="og:updated_time" content="2018-09-09T02:54:28.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java学习杂项笔记(part3)">
-<meta name="twitter:description" content="内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、 java的代码块、构造函数与静态代码块、构造代码块的作用  继承的基本概念java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。 注：继承体现的是一种关系。">
+<meta name="twitter:description" content="内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、 java的代码块、构造函数与静态代码块、构造代码块的作用  继承的基本概念java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。">
 
 
 
@@ -449,8 +449,8 @@
         <p>内容：继承的基本概念、继承的注意事项、继承中成员变量的关系、this和super关键字、继承中构造方法的关系及注意、</p>
 <p>java的代码块、构造函数与静态代码块、构造代码块的作用</p>
 <hr>
-<h4 id="继承的基本概念"><a href="#继承的基本概念" class="headerlink" title="继承的基本概念"></a>继承的基本概念</h4><p>java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。</p>
-<p><strong>注：继承体现的是一种关系。</strong><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoA</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"DemoA"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoB</span> <span class="keyword">extends</span> <span class="title">DemoA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"DemoB"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Democ</span> <span class="keyword">extends</span> <span class="title">DemoB</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"DemoC"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="继承的基本概念"><a href="#继承的基本概念" class="headerlink" title="继承的基本概念"></a>继承的基本概念</h4><p>java中支持单继承，继承能提高代码的复用性，但同时也增加了类的耦合性，这个耦合性有利有弊，比如修改最上层类时，它下层的类也会随之改变，但是也有利于维护代码。<br><a id="more"></a><br><strong>注：继承体现的是一种关系。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoA</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"DemoA"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoB</span> <span class="keyword">extends</span> <span class="title">DemoA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"DemoB"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Democ</span> <span class="keyword">extends</span> <span class="title">DemoB</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"DemoC"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果想用这个继承体系的所有功能，使用最底层的类创建对象。如DemoC。<br>如果想看这个体系中的共性功能，使用最顶层的类创建对象。如DemoA。</p>
 <hr>
 <h4 id="继承的注意事项"><a href="#继承的注意事项" class="headerlink" title="继承的注意事项"></a>继承的注意事项</h4><p>1.子类只能继承父类所有非私有成员（成员方法和成员变量）</p>
@@ -634,7 +634,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
