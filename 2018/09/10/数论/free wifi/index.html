@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="链表" />
+  <meta name="keywords" content="数论,康托展开," />
 
 
 
@@ -81,18 +81,27 @@
 
 
 
-<meta name="description" content="在链表的某一个位置插入一个结点，同样，未写出free链表的函数 用一级指针和二级指针的区别： 一级指针：传入一个地址，我们可以对地址上的值进行修改。但如果是一个空指针，你在函数内为之开辟空间是无法带回函数外部的。 二级指针：传入一个指针的地址，此时指针是作为地址上的值让我们修改的。  传入一级指针如果只是删除添加除头结点以外的结点是可以的，但是删除和插入有可能需要修改头结点，这时需要传入二级指针来">
-<meta name="keywords" content="链表">
+<meta name="description" content="康托展开这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 线段树来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。">
+<meta name="keywords" content="数论,康托展开">
 <meta property="og:type" content="article">
-<meta property="og:title" content="链表的基本操作（插入结点篇）">
-<meta property="og:url" content="http://maojunjie666.top/2018/09/02/链表/链表的基本操作（插入篇)/index.html">
+<meta property="og:title" content="康托展开和逆康托展开">
+<meta property="og:url" content="http://maojunjie666.top/2018/09/10/数论/free wifi/index.html">
 <meta property="og:site_name" content="哲♂学家的小黑屋">
-<meta property="og:description" content="在链表的某一个位置插入一个结点，同样，未写出free链表的函数 用一级指针和二级指针的区别： 一级指针：传入一个地址，我们可以对地址上的值进行修改。但如果是一个空指针，你在函数内为之开辟空间是无法带回函数外部的。 二级指针：传入一个指针的地址，此时指针是作为地址上的值让我们修改的。  传入一级指针如果只是删除添加除头结点以外的结点是可以的，但是删除和插入有可能需要修改头结点，这时需要传入二级指针来">
+<meta property="og:description" content="康托展开这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 线段树来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T12:51:41.976Z">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D79/sign=d9e56bf2d154564ee165e630b2de073a/b219ebc4b74543a91297ad2d12178a82b8011446.jpg">
+<meta property="og:image" content="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=82f2c35a8bd6277fed12323f2a38b4fa/d1a20cf431adcbef73fa29e7a0af2edda2cc9f00.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D94/sign=db112176d533c895a27e947fd01340bb/0df3d7ca7bcb0a46262addd86763f6246a60afc3.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=a5d1832f9525bc312f5d019f5fdf30a9/aa64034f78f0f73627e71ae00655b319ebc41331.jpg">
+<meta property="og:image" content="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=77db5956e550352ab561250f5243cbad/d0c8a786c9177f3e2a21aaec7ccf3bc79f3d563d.jpg">
+<meta property="og:image" content="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D55/sign=882208b2fa246b607f0eb271eaf8e2ac/dc54564e9258d10985f5ff53dd58ccbf6c814d38.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D29/sign=4327609e74f0f736dcfe4b080b555348/359b033b5bb5c9eafd8d5502d939b6003bf3b3d1.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D322/sign=f917ca3d8613632711edc431a38da056/359b033b5bb5c9eafd065502d939b6003bf3b35e.jpg">
+<meta property="og:updated_time" content="2018-09-10T15:37:40.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="链表的基本操作（插入结点篇）">
-<meta name="twitter:description" content="在链表的某一个位置插入一个结点，同样，未写出free链表的函数 用一级指针和二级指针的区别： 一级指针：传入一个地址，我们可以对地址上的值进行修改。但如果是一个空指针，你在函数内为之开辟空间是无法带回函数外部的。 二级指针：传入一个指针的地址，此时指针是作为地址上的值让我们修改的。  传入一级指针如果只是删除添加除头结点以外的结点是可以的，但是删除和插入有可能需要修改头结点，这时需要传入二级指针来">
+<meta name="twitter:title" content="康托展开和逆康托展开">
+<meta name="twitter:description" content="康托展开这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 线段树来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。">
+<meta name="twitter:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D79/sign=d9e56bf2d154564ee165e630b2de073a/b219ebc4b74543a91297ad2d12178a82b8011446.jpg">
 
 
 
@@ -122,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://maojunjie666.top/2018/09/02/链表/链表的基本操作（插入篇)/"/>
+  <link rel="canonical" href="http://maojunjie666.top/2018/09/10/数论/free wifi/"/>
 
 
 
 
 
-  <title>链表的基本操作（插入结点篇） | 哲♂学家的小黑屋</title>
+  <title>康托展开和逆康托展开 | 哲♂学家的小黑屋</title>
   
 
 
@@ -310,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/02/链表/链表的基本操作（插入篇)/">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/10/数论/free wifi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Schoringercatss">
@@ -327,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">链表的基本操作（插入结点篇）</h1>
+          <h1 class="post-title" itemprop="name headline">康托展开和逆康托展开</h1>
         
 
         <div class="post-meta">
@@ -339,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T09:39:34+08:00">
-                2018-09-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T23:37:40+08:00">
+                2018-09-10
               </time>
             
 
@@ -362,8 +371,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/链表/" itemprop="url" rel="index">
-                    <span itemprop="name">链表</span>
+                  <a href="/categories/数论/" itemprop="url" rel="index">
+                    <span itemprop="name">数论</span>
                   </a>
                 </span>
 
@@ -379,7 +388,7 @@
 
           
           
-             <span id="/2018/09/02/链表/链表的基本操作（插入篇)/" class="leancloud_visitors" data-flag-title="链表的基本操作（插入结点篇）">
+             <span id="/2018/09/10/数论/free wifi/" class="leancloud_visitors" data-flag-title="康托展开和逆康托展开">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -409,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  519字
+                  1,163字
                 </span>
               
 
@@ -425,7 +434,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  5分钟
                 </span>
               
             </div>
@@ -446,18 +455,37 @@
       
 
       
-        <p><strong>在链表的某一个位置插入一个结点</strong>，同样，未写出free链表的函数</p>
-<p>用一级指针和二级指针的区别：</p>
-<p>一级指针：传入一个地址，我们可以对地址上的值进行修改。但如果是一个空指针，你在函数内为之开辟空间是无法带回函数外部的。</p>
-<p>二级指针：传入一个指针的地址，此时指针是作为地址上的值让我们修改的。</p>
-<blockquote>
-<p>传入一级指针如果只是删除添加除头结点以外的结点是可以的，但是删除和插入有可能需要修改头结点，这时需要传入二级指针来修改指向头结点的指针指向的位置。 </p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;    <span class="comment">//数据域为int类型的内容</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span>  <span class="comment">//指针域指向下一个结点</span></span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//尾插法，每次在链表末尾插入一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create2</span><span class="params">(Node *head,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    Node *p,*q;</span><br><span class="line">    p=head;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        q=(Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">        q-&gt;data=i;</span><br><span class="line">        q-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">        p-&gt;next=q;</span><br><span class="line">        p=q;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向链表中的某一个位置插入一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListInsert</span><span class="params">(Node **L,<span class="keyword">int</span> i,<span class="keyword">int</span> e)</span>   <span class="comment">//head为头结点，i为要插入的位置，e为要插入的int类型数据</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    Node *p,*s;</span><br><span class="line">    p=*L;</span><br><span class="line">    j=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(p&amp;&amp;j&lt;i)&#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!p||j&gt;i)<span class="keyword">return</span> <span class="literal">false</span>;    <span class="comment">//如果p为空或者j大于了i，则说明插入失败</span></span><br><span class="line">    s=(Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    s-&gt;data=e;</span><br><span class="line">    s-&gt;next=p-&gt;next;</span><br><span class="line">    p-&gt;next=s;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node* head,*p;</span><br><span class="line">    head=(Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    create2(head,<span class="number">5</span>);</span><br><span class="line">    <span class="comment">//向链表的第3个位置插入一个元素6</span></span><br><span class="line">    ListInsert(&amp;head,<span class="number">3</span>,<span class="number">6</span>);</span><br><span class="line">    p=head-&gt;next;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"插入后,新链表为:\n"</span>);</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,p-&gt;data);</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>输出结果：</p>
-<p>插入后,新链表为:<br>0<br>1<br>6<br>2<br>3<br>4</p>
-</blockquote>
+        <h4 id="康托展开"><a href="#康托展开" class="headerlink" title="康托展开"></a>康托展开</h4><p>这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 <strong>线段树</strong>来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。</p>
+<a id="more"></a>
+<p>在 <img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D79/sign=d9e56bf2d154564ee165e630b2de073a/b219ebc4b74543a91297ad2d12178a82b8011446.jpg" alt="img"> 5个数的排列组合中，计算 34152的康托展开值。</p>
+<p>首位是3，则小于3的数有两个，为1和2， <img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=82f2c35a8bd6277fed12323f2a38b4fa/d1a20cf431adcbef73fa29e7a0af2edda2cc9f00.jpg" alt="img"> ，则首位小于3的所有排列组合为 <img src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D94/sign=db112176d533c895a27e947fd01340bb/0df3d7ca7bcb0a46262addd86763f6246a60afc3.jpg" alt="img"></p>
+<p>第二位是4，则小于4的数有两个，为1和2，注意这里3并不能算，因为3已经在第一位，所以其实计算的是在第二位之后小于4的个数。因此 <img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=a5d1832f9525bc312f5d019f5fdf30a9/aa64034f78f0f73627e71ae00655b319ebc41331.jpg" alt="img"> 。</p>
+<p>第三位是1，则在其之后小于1的数有0个，所以 <img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=77db5956e550352ab561250f5243cbad/d0c8a786c9177f3e2a21aaec7ccf3bc79f3d563d.jpg" alt="img"> 。</p>
+<p>第四位是5，则在其之后小于5的数有1个，为2，所以 <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D55/sign=882208b2fa246b607f0eb271eaf8e2ac/dc54564e9258d10985f5ff53dd58ccbf6c814d38.jpg" alt="img"> 。</p>
+<p>最后一位就不用计算啦，因为在它之后已经没有数了，所以 <img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D29/sign=4327609e74f0f736dcfe4b080b555348/359b033b5bb5c9eafd8d5502d939b6003bf3b3d1.jpg" alt="img"> 固定为0</p>
+<p>根据公式：</p>
+<p><img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D322/sign=f917ca3d8613632711edc431a38da056/359b033b5bb5c9eafd065502d939b6003bf3b35e.jpg" alt="img"> </p>
+<p>　　所以比34152小的组合有61个，即34152是排第62。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//康托展开</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for(int i=a;i&lt;n;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> close() ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> arr[] =&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">120</span>,<span class="number">720</span>,<span class="number">5040</span>,<span class="number">40320</span>,<span class="number">362880</span>&#125;;<span class="comment">//阶乘表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cantor</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> smaller =<span class="number">0</span> ;  <span class="comment">//在当前位之后小于其的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;++j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&lt;a[i])smaller++;</span><br><span class="line">        &#125;</span><br><span class="line">        x+=arr[n-i<span class="number">-1</span>]*smaller; <span class="comment">//因为从0开始数，所以要多减1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x; <span class="comment">//康托展开值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m []=&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;cantor(m,<span class="number">5</span>)+<span class="number">1</span>&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//比34152小的组合有61个，所以34152排第62个</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="逆康托展开"><a href="#逆康托展开" class="headerlink" title="逆康托展开"></a>逆康托展开</h4><p>（根据排第几推出当前序列）</p>
+<p>一开始已经提过了，康托展开是一个全排列到一个自然数的<strong>双射</strong>，因此是可逆的。即对于上述例子，在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p>
+<ul>
+<li>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。</li>
+<li>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。</li>
+<li>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。</li>
+<li>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。</li>
+<li>最后一位自然就是剩下的数2啦。</li>
+<li>通过以上分析，所求排列组合为 34152。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for(int i=a;i&lt;n;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> close() ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> arr[] =&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">120</span>,<span class="number">720</span>,<span class="number">5040</span>,<span class="number">40320</span>,<span class="number">362880</span>&#125;;<span class="comment">//阶乘表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decantor</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v; <span class="comment">//存放当前可选数</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;a; <span class="comment">//所求排列组合</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)v.pb(i);  <span class="comment">//因为这里是12345，如果不是，可能需要更改</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> r =x%arr[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">int</span> t =x/arr[i<span class="number">-1</span>];</span><br><span class="line">        x=r;</span><br><span class="line">        sort(v.begin(),v.end());</span><br><span class="line">        a.pb(v[t]);</span><br><span class="line">        v.erase(v.begin()+t); <span class="comment">//移出选做当前位的数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> x:a)<span class="built_in">cout</span>&lt;&lt;x;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    decantor(<span class="number">61</span>,<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="康托展开的应用"><a href="#康托展开的应用" class="headerlink" title="康托展开的应用"></a>康托展开的应用</h4><p>应用最多的场景也是上述讲的它的特性。</p>
+<ul>
+<li>给定一个自然数集合组合一个全排列，所其中的一个排列组合在全排列中从大到小排第几位。<br>在上述例子中，在（1，2，3，4，5）的全排列中，34152的排列组合排在第62位。</li>
+<li>反过来，就是逆康托展开，求在一个全排列中，第n个全排列是多少。<br>比如求在（1，2，3，4，5）的全排列中，第62个排列组合是34152。[注意具体计算中，要先 -1 才是其康托展开的值。]</li>
+<li>另外康托展开也是一个数组到一个数的映射，因此也是可用于hash，用于空间压缩。比如在保存一个序列，我们可能需要开一个数组，如果能够把它映射成一个自然数， 则只需要保存一个整数，大大压缩空间。比如八数码问题。</li>
+</ul>
 
       
     </div>
@@ -485,7 +513,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/链表/" <i class="fa fa-tag"></i> 链表</a>
+            <a href="/tags/数论/" <i class="fa fa-tag"></i> 数论</a>
+          
+            <a href="/tags/康托展开/" <i class="fa fa-tag"></i> 康托展开</a>
           
         </div>
       
@@ -498,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/02/web/html知识总结(1-3章)/" rel="next" title="html知识点总结(1-3章)">
-                <i class="fa fa-chevron-left"></i> html知识点总结(1-3章)
+              <a href="/2018/09/10/数论/康托展开/" rel="next" title="康托展开和逆康托展开">
+                <i class="fa fa-chevron-left"></i> 康托展开和逆康托展开
               </a>
             
           </div>
@@ -508,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/02/链表/链表的基本操作（初始化篇）/" rel="prev" title="链表的基本操作（初始化篇）">
-                链表的基本操作（初始化篇） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/10/计算几何/判断三点位置关系/" rel="prev" title="南阳oj68:判断三点位置">
+                南阳oj68:判断三点位置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -562,8 +592,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -650,6 +689,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#康托展开"><span class="nav-number">1.</span> <span class="nav-text">康托展开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆康托展开"><span class="nav-number">2.</span> <span class="nav-text">逆康托展开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#康托展开的应用"><span class="nav-number">3.</span> <span class="nav-text">康托展开的应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
