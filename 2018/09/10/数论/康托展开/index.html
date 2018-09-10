@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数论,康托展开," />
 
 
 
@@ -81,13 +81,27 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="哲♂学家的小黑屋">
-<meta property="og:url" content="http://maojunjie666.top/tags/排序/index.html">
+<meta name="description" content="康托展开这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 线段树来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。">
+<meta name="keywords" content="数论,康托展开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="康托展开和逆康托展开">
+<meta property="og:url" content="http://maojunjie666.top/2018/09/10/数论/康托展开/index.html">
 <meta property="og:site_name" content="哲♂学家的小黑屋">
+<meta property="og:description" content="康托展开这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 线段树来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D79/sign=d9e56bf2d154564ee165e630b2de073a/b219ebc4b74543a91297ad2d12178a82b8011446.jpg">
+<meta property="og:image" content="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=82f2c35a8bd6277fed12323f2a38b4fa/d1a20cf431adcbef73fa29e7a0af2edda2cc9f00.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D94/sign=db112176d533c895a27e947fd01340bb/0df3d7ca7bcb0a46262addd86763f6246a60afc3.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=a5d1832f9525bc312f5d019f5fdf30a9/aa64034f78f0f73627e71ae00655b319ebc41331.jpg">
+<meta property="og:image" content="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=77db5956e550352ab561250f5243cbad/d0c8a786c9177f3e2a21aaec7ccf3bc79f3d563d.jpg">
+<meta property="og:image" content="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D55/sign=882208b2fa246b607f0eb271eaf8e2ac/dc54564e9258d10985f5ff53dd58ccbf6c814d38.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D29/sign=4327609e74f0f736dcfe4b080b555348/359b033b5bb5c9eafd8d5502d939b6003bf3b3d1.jpg">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D322/sign=f917ca3d8613632711edc431a38da056/359b033b5bb5c9eafd065502d939b6003bf3b35e.jpg">
+<meta property="og:updated_time" content="2018-09-10T15:32:15.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哲♂学家的小黑屋">
+<meta name="twitter:title" content="康托展开和逆康托展开">
+<meta name="twitter:description" content="康托展开这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 线段树来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。">
+<meta name="twitter:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D79/sign=d9e56bf2d154564ee165e630b2de073a/b219ebc4b74543a91297ad2d12178a82b8011446.jpg">
 
 
 
@@ -117,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://maojunjie666.top/tags/排序/"/>
+  <link rel="canonical" href="http://maojunjie666.top/2018/09/10/数论/康托展开/"/>
 
 
 
 
 
-  <title>标签: 排序 | 哲♂学家的小黑屋</title>
+  <title>康托展开和逆康托展开 | 哲♂学家的小黑屋</title>
   
 
 
@@ -142,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -291,54 +305,258 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>排序<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://maojunjie666.top/2018/09/10/数论/康托展开/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Schoringercatss">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哲♂学家的小黑屋">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/06/排序/Is Sorted/" itemprop="url">
-              
-                <span itemprop="name">哈理工软件学院第三届ACM编程决赛-高年级组 B题：Is Sorted</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">康托展开和逆康托展开</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-06T00:00:00+08:00"
-              content="2018-09-06" >
-          09-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T23:10:45+08:00">
+                2018-09-10
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数论/" itemprop="url" rel="index">
+                    <span itemprop="name">数论</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/10/数论/康托展开/" class="leancloud_visitors" data-flag-title="康托展开和逆康托展开">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,163字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="康托展开"><a href="#康托展开" class="headerlink" title="康托展开"></a>康托展开</h4><p>这里主要为了讲解康托展开的思路，实现的算法复杂度为O(n^2)，实际当n很大时，内层循环计算在当前位之后小于当前位的个数可以用 <strong>线段树</strong>来处理计算，而不用每次都遍历，这样复杂度可以降为O(nlogn)。</p>
+<a id="more"></a>
+<p>在 <img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D79/sign=d9e56bf2d154564ee165e630b2de073a/b219ebc4b74543a91297ad2d12178a82b8011446.jpg" alt="img"> 5个数的排列组合中，计算 34152的康托展开值。</p>
+<p>首位是3，则小于3的数有两个，为1和2， <img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=82f2c35a8bd6277fed12323f2a38b4fa/d1a20cf431adcbef73fa29e7a0af2edda2cc9f00.jpg" alt="img"> ，则首位小于3的所有排列组合为 <img src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D94/sign=db112176d533c895a27e947fd01340bb/0df3d7ca7bcb0a46262addd86763f6246a60afc3.jpg" alt="img"></p>
+<p>第二位是4，则小于4的数有两个，为1和2，注意这里3并不能算，因为3已经在第一位，所以其实计算的是在第二位之后小于4的个数。因此 <img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=a5d1832f9525bc312f5d019f5fdf30a9/aa64034f78f0f73627e71ae00655b319ebc41331.jpg" alt="img"> 。</p>
+<p>第三位是1，则在其之后小于1的数有0个，所以 <img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D57/sign=77db5956e550352ab561250f5243cbad/d0c8a786c9177f3e2a21aaec7ccf3bc79f3d563d.jpg" alt="img"> 。</p>
+<p>第四位是5，则在其之后小于5的数有1个，为2，所以 <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D55/sign=882208b2fa246b607f0eb271eaf8e2ac/dc54564e9258d10985f5ff53dd58ccbf6c814d38.jpg" alt="img"> 。</p>
+<p>最后一位就不用计算啦，因为在它之后已经没有数了，所以 <img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D29/sign=4327609e74f0f736dcfe4b080b555348/359b033b5bb5c9eafd8d5502d939b6003bf3b3d1.jpg" alt="img"> 固定为0</p>
+<p>根据公式：</p>
+<p><img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D322/sign=f917ca3d8613632711edc431a38da056/359b033b5bb5c9eafd065502d939b6003bf3b35e.jpg" alt="img"> </p>
+<p>　　所以比34152小的组合有61个，即34152是排第62。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//康托展开</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for(int i=a;i&lt;n;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> close() ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> arr[] =&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">120</span>,<span class="number">720</span>,<span class="number">5040</span>,<span class="number">40320</span>,<span class="number">362880</span>&#125;;<span class="comment">//阶乘表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cantor</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> smaller =<span class="number">0</span> ;  <span class="comment">//在当前位之后小于其的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;++j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&lt;a[i])smaller++;</span><br><span class="line">        &#125;</span><br><span class="line">        x+=arr[n-i<span class="number">-1</span>]*smaller; <span class="comment">//因为从0开始数，所以要多减1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x; <span class="comment">//康托展开值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m []=&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;cantor(m,<span class="number">5</span>)+<span class="number">1</span>&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//比34152小的组合有61个，所以34152排第62个</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="逆康托展开"><a href="#逆康托展开" class="headerlink" title="逆康托展开"></a>逆康托展开</h4><p>（根据排第几推出当前序列）</p>
+<p>一开始已经提过了，康托展开是一个全排列到一个自然数的<strong>双射</strong>，因此是可逆的。即对于上述例子，在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p>
+<ul>
+<li>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。</li>
+<li>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。</li>
+<li>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。</li>
+<li>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。</li>
+<li>最后一位自然就是剩下的数2啦。</li>
+<li>通过以上分析，所求排列组合为 34152。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for(int i=a;i&lt;n;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> close() ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> arr[] =&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">120</span>,<span class="number">720</span>,<span class="number">5040</span>,<span class="number">40320</span>,<span class="number">362880</span>&#125;;<span class="comment">//阶乘表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decantor</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v; <span class="comment">//存放当前可选数</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;a; <span class="comment">//所求排列组合</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)v.pb(i);  <span class="comment">//因为这里是12345，如果不是，可能需要更改</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> r =x%arr[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">int</span> t =x/arr[i<span class="number">-1</span>];</span><br><span class="line">        x=r;</span><br><span class="line">        sort(v.begin(),v.end());</span><br><span class="line">        a.pb(v[t]);</span><br><span class="line">        v.erase(v.begin()+t); <span class="comment">//移出选做当前位的数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> x:a)<span class="built_in">cout</span>&lt;&lt;x;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    decantor(<span class="number">61</span>,<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="康托展开的应用"><a href="#康托展开的应用" class="headerlink" title="康托展开的应用"></a>康托展开的应用</h4><p>应用最多的场景也是上述讲的它的特性。</p>
+<ul>
+<li>给定一个自然数集合组合一个全排列，所其中的一个排列组合在全排列中从大到小排第几位。<br>在上述例子中，在（1，2，3，4，5）的全排列中，34152的排列组合排在第62位。</li>
+<li>反过来，就是逆康托展开，求在一个全排列中，第n个全排列是多少。<br>比如求在（1，2，3，4，5）的全排列中，第62个排列组合是34152。[注意具体计算中，要先 -1 才是其康托展开的值。]</li>
+<li>另外康托展开也是一个数组到一个数的映射，因此也是可用于hash，用于空间压缩。比如在保存一个序列，我们可能需要开一个数组，如果能够把它映射成一个自然数， 则只需要保存一个整数，大大压缩空间。比如八数码问题。</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+	<div>
+	
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数论/" <i class="fa fa-tag"></i> 数论</a>
+          
+            <a href="/tags/康托展开/" <i class="fa fa-tag"></i> 康托展开</a>
+          
+        </div>
+      
+		
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/计算几何/向量运算/" rel="next" title="计算几何----向量基本运算模板">
+                <i class="fa fa-chevron-left"></i> 计算几何----向量基本运算模板
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -346,6 +564,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -366,8 +588,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,6 +685,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#康托展开"><span class="nav-number">1.</span> <span class="nav-text">康托展开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆康托展开"><span class="nav-number">2.</span> <span class="nav-text">逆康托展开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#康托展开的应用"><span class="nav-number">3.</span> <span class="nav-text">康托展开的应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -620,6 +867,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
