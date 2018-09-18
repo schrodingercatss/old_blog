@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，输出即可。 题目传送门">
+<meta name="description" content="这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，因为最大长度是45位小数，所以我们使用%45.g即可。 题目传送门">
 <meta name="keywords" content="进制转换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="openjudge百练---八进制小数">
 <meta property="og:url" content="http://maojunjie666.top/2018/09/18/杂项/巧用占位符/index.html">
 <meta property="og:site_name" content="哲♂学家的小黑屋">
-<meta property="og:description" content="这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，输出即可。 题目传送门">
+<meta property="og:description" content="这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，因为最大长度是45位小数，所以我们使用%45.g即可。 题目传送门">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-18T09:32:14.947Z">
+<meta property="og:updated_time" content="2018-09-18T09:35:17.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="openjudge百练---八进制小数">
-<meta name="twitter:description" content="这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，输出即可。 题目传送门">
+<meta name="twitter:description" content="这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，因为最大长度是45位小数，所以我们使用%45.g即可。 题目传送门">
 
 
 
@@ -409,7 +409,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  221字
+                  238字
                 </span>
               
 
@@ -446,7 +446,7 @@
       
 
       
-        <p>这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，输出即可。</p>
+        <p>这题我们可以对八进制小数先进行进制转换，转换成十进制小数，然后再利用%g的忽略末尾无效0的特性，因为最大长度是45位小数，<br>所以我们使用%45.g即可。</p>
 <p><a href="http://bailian.openjudge.cn/practice/2765/" target="_blank" rel="noopener">题目传送门</a><br><a id="more"></a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:102400000,102400000"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,a,n) for(int i=a;i&lt;n;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> all(x) (x).begin(),(x).end()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> input() int t;cin&gt;&gt;t;while(t--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> close() ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mt(arr,n) memset(arr,n,sizeof(arr))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf ~0u&gt;&gt;1</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD =<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">char</span> num[<span class="number">205</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> n;</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;num)&#123;</span><br><span class="line">        n=<span class="number">0</span>;</span><br><span class="line">        len=<span class="built_in">strlen</span>(num);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len<span class="number">-1</span>;i&gt;<span class="number">1</span>;--i)&#123;</span><br><span class="line">            n = (n)/<span class="number">8.0</span> + num[i]-<span class="string">'0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        n/=<span class="number">8.0</span>; <span class="comment">//处理小数点前面那个</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>,num);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" [8] = %.45g [10]\n"</span>,n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
