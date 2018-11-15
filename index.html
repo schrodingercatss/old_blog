@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/15/题解/院程序设计大赛低年级组题解/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/11/15/题解/院程序设计大赛低年级组题解/" itemprop="url">院程序设计大赛（低年级组题解）</a></h1>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/2018/11/15/题解/院程序设计大赛低年级组题解/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/11/15/题解/院程序设计大赛低年级组题解/" class="leancloud_visitors" data-flag-title="院程序设计大赛（低年级组题解）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,121字
+                  1,108字
                 </span>
               
 
@@ -419,7 +419,7 @@
       
         
           
-            <h2 id="院程序设计大赛（低年级组题解）"><a href="#院程序设计大赛（低年级组题解）" class="headerlink" title="院程序设计大赛（低年级组题解）"></a>院程序设计大赛（低年级组题解）</h2><p>出题人感想：咱们很多同学还是很不错的，但是还是太依赖python的语言特性了，希望以后能抛弃python尝试用c语言去写题目，这次的题目难度很合理，控制在我能20分钟AK的范围，然后还把F题给削弱了，希望大家不要来205砍我（TvT）。</p>
+            <p>出题人感想：咱们很多同学还是很不错的，但是还是太依赖python的语言特性了，希望以后能抛弃python尝试用c语言去写题目，这次的题目难度很合理，控制在我能20分钟AK的范围，然后还把F题给削弱了，希望大家不要来205砍我（TvT）。</p>
 <hr>
 <h4 id="A题：听说你用不了sum函数了"><a href="#A题：听说你用不了sum函数了" class="headerlink" title="A题：听说你用不了sum函数了"></a>A题：听说你用不了sum函数了</h4><p>这题很简单，输入以后，遍历整个列表，判断奇偶就行。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">n = int(input())</span><br><span class="line"><span class="keyword">while</span> n :</span><br><span class="line">    odd = even = <span class="number">0</span></span><br><span class="line">    l = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> input().split()]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(l)):</span><br><span class="line">        <span class="keyword">if</span> l[i] % <span class="number">2</span>:</span><br><span class="line">            odd += l[i]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            even += l[i]</span><br><span class="line"></span><br><span class="line">    print(odd, even)</span><br><span class="line">    n -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
